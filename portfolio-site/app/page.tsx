@@ -1,7 +1,10 @@
 import Image from "next/image";
 import SlideInSection from "@/components/SlideInSection";
 import ProjectCard from "@/components/ProjectCard";
+// "use client";
 
+// import { useState } from "react";
+import DropdownSection from "@/components/DropdownSection";
 export default function HomePage() {
   return (
     <main className="min-h-screen overflow-x-hidden bg-neutral-950 text-neutral-200">
@@ -19,7 +22,7 @@ export default function HomePage() {
           <p className="mt-6 max-w-md text-lg leading-8 text-neutral-400">
             I build automation, data infrastructure, and internal software that
             replace manual work with systems people actually trust. When I am not
-            shipping, I am usually somewhere high, cold, or underwater.
+            working, I am usually somewhere cold, high, or underwater.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
@@ -69,6 +72,9 @@ export default function HomePage() {
           </h2>
         </SlideInSection>
 
+              {/* ------------------------- What I Build ------------------------- */}
+
+
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           <SlideInSection direction="left">
             <div className="h-full rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6">
@@ -103,6 +109,25 @@ export default function HomePage() {
         </div>
       </section>
 
+    
+
+      <section className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 mx-auto max-w-6xl px-6 py-24 md:px-8">
+        <SlideInSection direction="left">
+          <p className="mb-3 text-lg font-bold tracking-widest text-white-500">
+            NOT a 'Token Maxer'
+          </p>
+<section className="group rounded-lg p6">
+          <p className="mt-4 text-neutral-300 opacity-0 transition-opacity duration-100 group-hover:opacity-100">
+        This section is meant to ironically look vibe coded because LLMs always seem to use blue backgrounds
+          </p>
+          </section>
+          <h2 className="mb-3 text-med font-semibold text-black-500">
+            How I have integrated LLMs into work while minimizing wasted time on vibe coded errors:
+          </h2>
+          <DropdownSection />
+        </SlideInSection>
+      </section>
+      
       {/* ------------------------- Projects ----------------------------- */}
       <section id="projects" className="mx-auto max-w-6xl px-6 py-24 md:px-8">
         <SlideInSection direction="right">
@@ -266,11 +291,11 @@ export default function HomePage() {
         <SlideInSection direction="right">
           <div className="mt-10 rounded-2xl border border-neutral-800 bg-neutral-900/40 p-8">
             <h3 className="text-lg font-semibold text-neutral-100">
-              A few things I have finished (or survived)
+              Some of my accomplishments
             </h3>
             <ul className="mt-6 grid gap-x-8 gap-y-3 text-neutral-400 sm:grid-cols-2">
               <li className="border-l-2 border-amber-500/60 pl-4">
-                2026 CrossFit Games Semifinals Athlete
+                2026 CrossFit Games Semifinals Qualifier
               </li>
               <li className="border-l-2 border-amber-500/60 pl-4">
                 Arc of Attrition 50-Mile Ultramarathon Finisher
@@ -280,6 +305,9 @@ export default function HomePage() {
               </li>
               <li className="border-l-2 border-amber-500/60 pl-4">
                 Ironman California 2024 - 5th place AG, Ironman 70.3 Tempe
+              </li>
+              <li className="border-l-2 border-amber-500/60 pl-4">
+                Zermatt Ultra Marathon 2026 - 4th place AG, 17th overall
               </li>
               <li className="border-l-2 border-amber-500/60 pl-4">
                 PADI Advanced Open Water Diver
