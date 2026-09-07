@@ -1,120 +1,172 @@
 import Image from "next/image";
-import SlideInSection from "@/components/SlideInSection";
+import Reveal from "@/components/Reveal";
 import ProjectCard from "@/components/ProjectCard";
-// "use client";
-
-// import { useState } from "react";
 import DropdownSection from "@/components/DropdownSection";
+
+const shell = "mx-auto w-full max-w-[1280px] px-6 md:px-10";
+
+const metrics = [
+  {
+    index: "01",
+    value: "$20M+",
+    description:
+      "Collected through an automated settlement flow that replaced a 12-person negotiations team and now drives 55%+ of company revenue.",
+  },
+  {
+    index: "02",
+    value: "100M+ rows",
+    description:
+      "Of cashflow, customer, and company data modeled in a Snowflake platform I designed from scratch, with role-based access control keeping proprietary financial data scoped to the people who need it.",
+  },
+  {
+    index: "03",
+    value: "40+ users",
+    description:
+      "On internal tools I built and maintain, used daily by executives, sales reps, and customer service across two companies.",
+  },
+];
+
+const pursuits = [
+  {
+    src: "/via-ferrata.png",
+    alt: "On a via ferrata ladder above a deep valley",
+    caption: "Willing to work anytime anywhere.",
+  },
+  {
+    src: "/mtb.png",
+    alt: "Mountain biking off a rock drop in the forest",
+    caption: "Not great at mountain biking, but I fake it well, sometimes.",
+  },
+  {
+    src: "/spearfishing.png",
+    alt: "In a wetsuit at night before a dive",
+    caption:
+      "Lobster diving has been a hobby of mine, but they walk away unscathed most of the time.",
+  },
+];
+
+const accomplishments = [
+  "2026 CrossFit Games Semifinals Qualifier",
+  "Arc of Attrition 50-Mile Ultramarathon Finisher",
+  "Solo ascents of the Matterhorn, Mont Blanc, Eiger & Grand Teton",
+  "Ironman California 2024 - 5th place AG, Ironman 70.3 Tempe",
+  "Zermatt Ultra Marathon 2026 - 4th place AG, 17th overall",
+  "PADI Advanced Open Water Diver",
+  "Level 3 USHPA Paragliding License",
+];
+
 export default function HomePage() {
   return (
-    <main className="min-h-screen overflow-x-hidden bg-neutral-950 text-neutral-200">
+    <main className="min-h-screen overflow-x-hidden bg-canvas text-ink">
+      <header className={`${shell} flex items-center justify-between py-5`}>
+        <span className="text-[15px] font-medium tracking-[-0.01em]">
+          David Gordon
+        </span>
+        <span className="font-mono text-[12px] text-meta">Portfolio — 2026</span>
+      </header>
+
       {/* ----------------------------- Hero ----------------------------- */}
-      <section className="mx-auto grid max-w-6xl items-center gap-12 px-6 pb-24 pt-24 md:grid-cols-2 md:px-8 md:pt-32">
-        <SlideInSection direction="left">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-amber-500">
-            David Gordon
-          </p>
+      <section className={shell}>
+        <div className="grid grid-cols-1 gap-12 border-t border-rule py-16 md:grid-cols-12 md:gap-8 md:py-20">
+          <div className="md:col-span-7">
+            <p className="border-l border-rule pl-4 font-mono text-[12px] leading-[1.7] text-meta">
+              Business Systems Engineer
+              <br />
+              Automation · Data infrastructure · Internal software
+            </p>
 
-          <h1 className="text-5xl font-bold leading-tight text-neutral-50 md:text-6xl">
-            Business Systems Engineer<span className="text-amber-500">.</span>
-          </h1>
+            <h1 className="mt-10 text-[clamp(2.4rem,5.4vw,4.25rem)] font-medium leading-[1.03] tracking-[-0.035em]">
+              I replace manual work with systems people actually trust.
+            </h1>
 
-          <p className="mt-6 max-w-md text-lg leading-8 text-neutral-400">
-            I build automation, data infrastructure, and internal software that
-            replace manual work with systems people actually trust. When I am not
-            working, I am usually somewhere cold, high, or underwater.
-          </p>
+            <p className="mt-8 max-w-[54ch] text-[16px] leading-[1.75] text-muted">
+              I build the automation, data platforms, and internal tools that
+              operations teams run on — systems that take repetitive work off
+              people&apos;s plates and let them spend their hours on judgment
+              instead. When I am not working, I am usually somewhere cold, high,
+              or underwater.
+            </p>
 
-          <div className="mt-8 flex flex-wrap gap-4">
-            <a
-              href="#projects"
-              className="rounded-xl bg-amber-500 px-5 py-3 font-medium text-neutral-950 transition-colors hover:bg-amber-400"
-            >
-              View Projects
-            </a>
-
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-xl border border-neutral-700 px-5 py-3 font-medium text-neutral-200 transition-colors hover:border-neutral-400"
-            >
-              My Resume
-            </a>
+            <div className="mt-12 flex flex-wrap gap-x-10 gap-y-4 font-mono text-[13px]">
+              <a
+                href="#projects"
+                className="border-b border-rule pb-1 transition-colors hover:border-ink"
+              >
+                Selected work
+              </a>
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-b border-rule pb-1 text-muted transition-colors hover:border-ink hover:text-ink"
+              >
+                Résumé (PDF)
+              </a>
+              <a
+                href="mailto:dgordon102202@gmail.com"
+                className="border-b border-rule pb-1 text-muted transition-colors hover:border-ink hover:text-ink"
+              >
+                dgordon102202@gmail.com
+              </a>
+            </div>
           </div>
-        </SlideInSection>
 
-        <SlideInSection direction="right">
-          <div className="flex justify-center md:justify-end">
-            <div className="relative h-80 w-80 overflow-hidden rounded-full border border-neutral-800 bg-neutral-900">
+          <div className="md:col-span-4 md:col-start-9">
+            <div className="relative aspect-3/4 w-full overflow-hidden bg-panel">
               <Image
                 src="/profile.png"
-                alt="David Gordon in the mountains"
-                width={320}
-                height={320}
+                alt="David Gordon on a snow-covered ridgeline"
+                fill
                 priority
-                className="h-full w-full object-cover"
+                sizes="(min-width: 768px) 33vw, 100vw"
+                className="object-cover grayscale contrast-110"
               />
             </div>
+            <p className="mt-4 font-mono text-[12px] leading-[1.6] text-meta">
+              Somewhere cold, high, or underwater.
+            </p>
           </div>
-        </SlideInSection>
-      </section>
-
-      {/* ------------------------- What I Build ------------------------- */}
-      <section className="mx-auto max-w-6xl px-6 py-24 md:px-8">
-        <SlideInSection direction="left">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-amber-500">
-            What I Build
-          </p>
-          <h2 className="max-w-2xl text-3xl font-bold text-neutral-50 md:text-4xl">
-            I turn expensive, manual processes into systems that pay for
-            themselves.
-          </h2>
-        </SlideInSection>
-
-              {/* ------------------------- What I Build ------------------------- */}
-
-
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          <SlideInSection direction="left">
-            <div className="h-full rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6">
-              <p className="text-3xl font-bold text-amber-500">$20M+</p>
-              <p className="mt-3 leading-7 text-neutral-400">
-                Collected through an automated settlement flow that replaced a
-                12-person negotiations team and now drives 55%+ of company
-                revenue.
-              </p>
-            </div>
-          </SlideInSection>
-
-          <SlideInSection direction="left">
-            <div className="h-full rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6">
-              <p className="text-3xl font-bold text-amber-500">100M+ rows</p>
-              <p className="mt-3 leading-7 text-neutral-400">
-                Of cashflow, customer, and company data modeled in a Snowflake
-                platform I designed from scratch to drive real decisions.
-              </p>
-            </div>
-          </SlideInSection>
-
-          <SlideInSection direction="left">
-            <div className="h-full rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6">
-              <p className="text-3xl font-bold text-amber-500">40+ users</p>
-              <p className="mt-3 leading-7 text-neutral-400">
-                On internal tools I built and maintain - used daily by sales
-                reps, customer service, and executives across two companies.
-              </p>
-            </div>
-          </SlideInSection>
         </div>
       </section>
 
-    
+      {/* ------------------------- What I Build ------------------------- */}
+      <section className={shell}>
+        <Reveal>
+          <div className="border-t border-rule pt-16">
+            <p className="font-mono text-[12px] text-meta">What I build</p>
+            <h2 className="mt-6 max-w-[24ch] text-[clamp(1.75rem,3.2vw,2.5rem)] font-medium leading-[1.15] tracking-[-0.03em]">
+              I turn expensive, manual processes into systems that pay for
+              themselves.
+            </h2>
+          </div>
+        </Reveal>
+
+        <div className="grid grid-cols-1 pb-20 pt-14 sm:grid-cols-3">
+          {metrics.map((metric, i) => (
+            <Reveal
+              key={metric.index}
+              className={`sm:pr-8 ${
+                i > 0
+                  ? "border-t border-rule pt-10 sm:border-t-0 sm:border-l sm:pl-8 sm:pt-0"
+                  : ""
+              } ${i > 0 ? "mt-10 sm:mt-0" : ""}`}
+            >
+              <p className="font-mono text-[12px] text-faint">{metric.index}</p>
+              <p className="mt-4 text-[28px] font-medium tracking-[-0.03em]">
+                {metric.value}
+              </p>
+              <p className="mt-3 text-[14px] leading-[1.7] text-muted">
+                {metric.description}
+              </p>
+            </Reveal>
+          ))}
+        </div>
+      </section>
 
       <section className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 mx-auto max-w-6xl px-6 py-24 md:px-8">
-        <SlideInSection direction="left">
+        <Reveal>
           <p className="mb-3 text-lg font-bold tracking-widest text-white-500">
-            NOT a 'Token Maxer'
+            NOT a &apos;Token-Maxer&apos;
           </p>
 <section className="group rounded-lg p6">
           <p className="mt-4 text-neutral-300 opacity-0 transition-opacity duration-100 group-hover:opacity-100">
@@ -122,26 +174,27 @@ export default function HomePage() {
           </p>
           </section>
           <h2 className="mb-3 text-med font-semibold text-black-500">
-            How I have integrated LLMs into work while minimizing wasted time on vibe coded errors:
+            How I have integrated LLMs into work while minimizing wasted time on vibe-coded errors:
           </h2>
           <DropdownSection />
-        </SlideInSection>
+        </Reveal>
       </section>
-      
-      {/* ------------------------- Projects ----------------------------- */}
-      <section id="projects" className="mx-auto max-w-6xl px-6 py-24 md:px-8">
-        <SlideInSection direction="right">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-amber-500">
-            Selected Projects
-          </p>
-          <h2 className="text-3xl font-bold text-neutral-50 md:text-4xl">
-            A few things I have shipped.
-          </h2>
-        </SlideInSection>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          <SlideInSection direction="left">
+      {/* ------------------------- Projects ----------------------------- */}
+      <section id="projects" className={shell}>
+        <Reveal>
+          <div className="border-t border-rule pt-16">
+            <p className="font-mono text-[12px] text-meta">Selected projects</p>
+            <h2 className="mt-6 text-[clamp(1.75rem,3.2vw,2.5rem)] font-medium leading-[1.15] tracking-[-0.03em]">
+              A few things I have shipped.
+            </h2>
+          </div>
+        </Reveal>
+
+        <div className="mt-14 grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-2">
+          <Reveal>
             <ProjectCard
+              index="01"
               title="Otter Dolphin"
               role="Internal CRM & BI Platform"
               description="A secure CRM and business-intelligence platform pulling realtime data from three separate API pipelines, used by 40+ people across two companies to make decisions on live numbers instead of stale reports."
@@ -151,25 +204,27 @@ export default function HomePage() {
                 <Image
                   src="/otterdolphin.png"
                   alt="Otter Dolphin logo"
-                  width={56}
-                  height={56}
-                  className="h-14 w-14 object-cover"
+                  width={48}
+                  height={48}
+                  className="h-12 w-12 object-cover grayscale"
                 />
               }
             />
-          </SlideInSection>
+          </Reveal>
 
-          <SlideInSection direction="right">
+          <Reveal>
             <ProjectCard
+              index="02"
               title="Settlement Automation"
               role="End-to-End Revenue Workflow"
               description="Takes offers from creditors, matches them against live cashflows, and returns offers with zero human intervention. I rebuilt the organic version in one week after a vendor failed to deliver it in a year."
               tags={["Python", "Automation", "Snowflake"]}
             />
-          </SlideInSection>
+          </Reveal>
 
-          <SlideInSection direction="left">
+          <Reveal>
             <ProjectCard
+              index="03"
               title="Argo Delivery"
               role="Founder & Mobile App Developer"
               description="A B2C delivery app connecting high-cost local markets with cheaper purchasing options. Launched on the App Store with a multi-order model designed to keep long-distance delivery profitable."
@@ -179,181 +234,139 @@ export default function HomePage() {
                 <Image
                   src="/argo.png"
                   alt="Argo Delivery logo"
-                  width={56}
-                  height={56}
-                  className="h-14 w-14 scale-[1.18] object-cover"
+                  width={48}
+                  height={48}
+                  className="h-12 w-12 scale-[1.18] object-cover grayscale"
                 />
               }
             />
-          </SlideInSection>
+          </Reveal>
 
-          <SlideInSection direction="right">
+          <Reveal>
             <ProjectCard
+              index="04"
               title="No Rep Snacks"
               role="Automated Retail Checkout"
               description="An automated checkout that uses customer recognition and object detection to identify purchases and send invoices - computer vision, billing logic, and real-world testing in an actual store."
               tags={["Computer Vision", "Python", "Automation"]}
               link="https://norepsnacks.com"
               icon={
-                <div className="flex h-14 w-14 items-center justify-center bg-black px-1 text-center text-[10px] font-bold uppercase leading-tight tracking-tight text-white">
+                <div className="flex h-12 w-12 items-center justify-center bg-ink px-1 text-center text-[9px] font-bold uppercase leading-tight tracking-tight text-canvas">
                   No Rep Snacks
                 </div>
               }
             />
-          </SlideInSection>
+          </Reveal>
         </div>
 
-        <SlideInSection direction="left">
-          <div className="mt-10 overflow-hidden rounded-2xl border border-neutral-800">
-            <div className="relative h-72 w-full md:h-96">
-              <Image
-                src="/mountain-laptop.png"
-                alt="Working on a laptop on a mountainside"
-                fill
-                className="object-cover"
-              />
-            </div>
-            {/* <p className="bg-neutral-900/60 px-6 py-4 text-sm text-neutral-400">
-              
-            </p> */}
+        <Reveal className="mt-16 pb-20">
+          <div className="relative h-72 w-full overflow-hidden bg-panel md:h-96">
+            <Image
+              src="/mountain-laptop.png"
+              alt="Working on a laptop on a mountainside"
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
           </div>
-        </SlideInSection>
+        </Reveal>
       </section>
 
       {/* ----------------------- Beyond the Desk ------------------------ */}
-      <section className="mx-auto max-w-6xl px-6 py-24 md:px-8">
-        <SlideInSection direction="right">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-amber-500">
-            Beyond the Desk
-          </p>
-          <h2 className="max-w-2xl text-3xl font-bold text-neutral-50 md:text-4xl">
-            The same stubbornness, applied to harder terrain.
-          </h2>
-          <p className="mt-4 max-w-2xl leading-8 text-neutral-400">
-            {/* I do not have a great relationship with the word &quot;quit.&quot;
-            That tends to show up at work and, more obviously, in places with bad
-            weather and worse cell service.
+      <section className={shell}>
+        <Reveal>
+          <div className="border-t border-rule pt-16">
+            <p className="font-mono text-[12px] text-meta">Beyond the desk</p>
+            <h2 className="mt-6 max-w-[24ch] text-[clamp(1.75rem,3.2vw,2.5rem)] font-medium leading-[1.15] tracking-[-0.03em]">
+              The same stubbornness, applied to harder terrain.
+            </h2>
+            <p className="mt-6 max-w-[58ch] text-[16px] leading-[1.75] text-muted">
+              I do not have a great relationship with the word &quot;quit.&quot;
+              That tends to show up at work and, more obviously, in places with
+              bad weather and worse cell service.
+            </p>
+          </div>
+        </Reveal>
 
-           */}
-          </p>
-        </SlideInSection>
-
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          <SlideInSection direction="left">
-            <figure className="overflow-hidden rounded-2xl border border-neutral-800">
-              <div className="relative h-64 w-full">
-                <Image
-                  src="/via-ferrata.png"
-                  alt="On a via ferrata ladder above a deep valley"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <figcaption className="bg-neutral-900/60 px-4 py-3 text-sm text-neutral-400">
-                Willing to work anytime anywhere.
-              </figcaption>
-            </figure>
-          </SlideInSection>
-
-          <SlideInSection direction="left">
-            <figure className="overflow-hidden rounded-2xl border border-neutral-800">
-              <div className="relative h-64 w-full">
-                <Image
-                  src="/mtb.png"
-                  alt="Mountain biking off a rock drop in the forest"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <figcaption className="bg-neutral-900/60 px-4 py-3 text-sm text-neutral-400">
-                Not great at mountain biking, but I fake it well, sometimes.
-              </figcaption>
-            </figure>
-          </SlideInSection>
-
-          <SlideInSection direction="left">
-            <figure className="overflow-hidden rounded-2xl border border-neutral-800">
-              <div className="relative h-64 w-full">
-                <Image
-                  src="/spearfishing.png"
-                  alt="In a wetsuit at night before a dive"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <figcaption className="bg-neutral-900/60 px-4 py-3 text-sm text-neutral-400">
-                Lobster diving has been a hobby of mine, but they walk away unscathed most of the time.
-              </figcaption>
-            </figure>
-          </SlideInSection>
+        <div className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-3">
+          {pursuits.map((pursuit) => (
+            <Reveal key={pursuit.src}>
+              <figure>
+                <div className="relative h-64 w-full overflow-hidden bg-panel">
+                  <Image
+                    src={pursuit.src}
+                    alt={pursuit.alt}
+                    fill
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className="mt-4 font-mono text-[12px] leading-[1.6] text-meta">
+                  {pursuit.caption}
+                </figcaption>
+              </figure>
+            </Reveal>
+          ))}
         </div>
 
-        <SlideInSection direction="right">
-          <div className="mt-10 rounded-2xl border border-neutral-800 bg-neutral-900/40 p-8">
-            <h3 className="text-lg font-semibold text-neutral-100">
+        <Reveal className="mt-16 pb-20">
+          <div className="border-t border-rule pt-8">
+            <p className="font-mono text-[12px] text-meta">
               Some of my accomplishments
-            </h3>
-            <ul className="mt-6 grid gap-x-8 gap-y-3 text-neutral-400 sm:grid-cols-2">
-              <li className="border-l-2 border-amber-500/60 pl-4">
-                2026 CrossFit Games Semifinals Qualifier
-              </li>
-              <li className="border-l-2 border-amber-500/60 pl-4">
-                Arc of Attrition 50-Mile Ultramarathon Finisher
-              </li>
-              <li className="border-l-2 border-amber-500/60 pl-4">
-                Solo ascents of the Matterhorn, Mont Blanc, Eiger & Grand Teton
-              </li>
-              <li className="border-l-2 border-amber-500/60 pl-4">
-                Ironman California 2024 - 5th place AG, Ironman 70.3 Tempe
-              </li>
-              <li className="border-l-2 border-amber-500/60 pl-4">
-                Zermatt Ultra Marathon 2026 - 4th place AG, 17th overall
-              </li>
-              <li className="border-l-2 border-amber-500/60 pl-4">
-                PADI Advanced Open Water Diver
-              </li>
-              <li className="border-l-2 border-amber-500/60 pl-4">
-                Level 3 USHPA Paragliding License
-              </li>
+            </p>
+            <ul className="mt-6 grid grid-cols-1 gap-x-10 sm:grid-cols-2">
+              {accomplishments.map((item) => (
+                <li
+                  key={item}
+                  className="border-b border-rule py-3 text-[14px] leading-[1.6] text-muted"
+                >
+                  {item}
+                </li>
+              ))}
             </ul>
           </div>
-        </SlideInSection>
+        </Reveal>
       </section>
 
       {/* --------------------------- Contact ---------------------------- */}
-      <section className="mx-auto max-w-6xl px-6 py-24 md:px-8">
-        <SlideInSection direction="left">
-          <div className="rounded-2xl border border-neutral-800 bg-neutral-900/40 p-10 text-center">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-amber-500">
-              Get in touch
-            </p>
-            <h2 className="text-3xl font-bold text-neutral-50 md:text-4xl">
-              {/* Have a messy process worth automating? */}
-            </h2>
-            <p className="mx-auto mt-4 max-w-md leading-8 text-neutral-400">
-              {/* I am always happy to talk shop - systems, data, or the next
-              mountain. */}
-            </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <a
-                href="mailto:dgordon102202@gmail.com"
-                className="rounded-xl bg-amber-500 px-5 py-3 font-medium text-neutral-950 transition-colors hover:bg-amber-400"
-              >
-                dgordon102202@gmail.com
-              </a>
-              <a
-                href="tel:+18133448648"
-                className="rounded-xl border border-neutral-700 px-5 py-3 font-medium text-neutral-200 transition-colors hover:border-neutral-400"
-              >
-                +1 813-344-8648
-              </a>
+      <section id="contact" className={shell}>
+        <Reveal>
+          <div className="grid grid-cols-1 gap-10 border-t border-rule py-20 md:grid-cols-12">
+            <div className="md:col-span-3">
+              <p className="font-mono text-[12px] text-meta">Get in touch</p>
+            </div>
+            <div className="md:col-span-9">
+              <h2 className="max-w-[20ch] text-[clamp(1.75rem,3.2vw,2.5rem)] font-medium leading-[1.15] tracking-[-0.03em]">
+                Have a messy process worth automating?
+              </h2>
+              <p className="mt-6 max-w-[52ch] text-[16px] leading-[1.75] text-muted">
+                I am always happy to talk shop — systems, data, or the next
+                mountain.
+              </p>
+              <div className="mt-10 flex flex-wrap gap-x-10 gap-y-4 font-mono text-[13px]">
+                <a
+                  href="mailto:dgordon102202@gmail.com"
+                  className="border-b border-rule pb-1 transition-colors hover:border-ink"
+                >
+                  dgordon102202@gmail.com
+                </a>
+                <a
+                  href="tel:+18133448648"
+                  className="border-b border-rule pb-1 text-muted transition-colors hover:border-ink hover:text-ink"
+                >
+                  +1 813-344-8648
+                </a>
+              </div>
             </div>
           </div>
-        </SlideInSection>
+        </Reveal>
       </section>
 
-      <footer className="border-t border-neutral-900 py-8 text-center text-sm text-neutral-500">
-        &copy; {new Date().getFullYear()} David Gordon
+      <footer className={shell}>
+        <div className="flex flex-wrap items-center justify-between gap-4 border-t border-rule py-8 font-mono text-[12px] text-faint">
+          <span>&copy; {new Date().getFullYear()} David Gordon</span>
+          <span>Business Systems Engineer</span>
+        </div>
       </footer>
     </main>
   );
