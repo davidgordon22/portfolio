@@ -28,17 +28,17 @@ const metrics = [
 
 const pursuits = [
   {
-    src: "/via-ferrata.png",
+    src: "/via-ferrata.jpg",
     alt: "On a via ferrata ladder above a deep valley",
     caption: "Willing to work anytime anywhere.",
   },
   {
-    src: "/mtb.png",
+    src: "/mtb.jpg",
     alt: "Mountain biking off a rock drop in the forest",
     caption: "Not great at mountain biking, but I fake it well, sometimes.",
   },
   {
-    src: "/spearfishing.png",
+    src: "/spearfishing.jpg",
     alt: "In a wetsuit at night before a dive",
     caption:
       "Lobster diving has been a hobby of mine, but they walk away unscathed most of the time.",
@@ -62,7 +62,7 @@ export default function HomePage() {
         <span className="text-[15px] font-medium tracking-[-0.01em]">
           David Gordon
         </span>
-        <span className="font-mono text-[12px] text-meta">Portfolio — 2026</span>
+        <span className="font-mono text-[12px] text-meta">Portfolio 2026</span>
       </header>
 
       {/* ----------------------------- Hero ----------------------------- */}
@@ -81,7 +81,7 @@ export default function HomePage() {
 
             <p className="mt-8 max-w-[54ch] text-[16px] leading-[1.75] text-muted">
               I build the automation, data platforms, and internal tools that
-              operations teams run on — systems that take repetitive work off
+              operations teams run on. They take repetitive work off
               people&apos;s plates and let them spend their hours on judgment
               instead. When I am not working, I am usually somewhere cold, high,
               or underwater.
@@ -102,19 +102,13 @@ export default function HomePage() {
               >
                 Résumé (PDF)
               </a>
-              <a
-                href="mailto:dgordon102202@gmail.com"
-                className="border-b border-rule pb-1 text-muted transition-colors hover:border-ink hover:text-ink"
-              >
-                dgordon102202@gmail.com
-              </a>
             </div>
           </div>
 
           <div className="md:col-span-4 md:col-start-9">
             <div className="relative aspect-3/4 w-full overflow-hidden bg-panel">
               <Image
-                src="/profile.png"
+                src="/profile.jpg"
                 alt="David Gordon on a snow-covered ridgeline"
                 fill
                 priority
@@ -262,7 +256,7 @@ export default function HomePage() {
         <Reveal className="mt-16 pb-20">
           <div className="relative h-72 w-full overflow-hidden bg-panel md:h-96">
             <Image
-              src="/mountain-laptop.png"
+              src="/mountain-laptop.jpg"
               alt="Working on a laptop on a mountainside"
               fill
               sizes="100vw"
@@ -340,21 +334,17 @@ export default function HomePage() {
                 Have a messy process worth automating?
               </h2>
               <p className="mt-6 max-w-[52ch] text-[16px] leading-[1.75] text-muted">
-                I am always happy to talk shop — systems, data, or the next
-                mountain.
+                I am always happy to talk shop: systems, data, or the next
+                mountain. My contact details are on my résumé.
               </p>
               <div className="mt-10 flex flex-wrap gap-x-10 gap-y-4 font-mono text-[13px]">
                 <a
-                  href="mailto:dgordon102202@gmail.com"
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="border-b border-rule pb-1 transition-colors hover:border-ink"
                 >
-                  dgordon102202@gmail.com
-                </a>
-                <a
-                  href="tel:+18133448648"
-                  className="border-b border-rule pb-1 text-muted transition-colors hover:border-ink hover:text-ink"
-                >
-                  +1 813-344-8648
+                  Résumé (PDF)
                 </a>
               </div>
             </div>
