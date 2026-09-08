@@ -26,8 +26,6 @@ function locationFrom(request: NextRequest) {
     city: decodeURIComponent(request.headers.get("x-vercel-ip-city") || ""),
     region: request.headers.get("x-vercel-ip-country-region") || "",
     country: request.headers.get("x-vercel-ip-country") || "",
-    latitude: request.headers.get("x-vercel-ip-latitude") || "",
-    longitude: request.headers.get("x-vercel-ip-longitude") || "",
   };
 }
 
@@ -43,6 +41,17 @@ function watchLocationMatch(city: string, region: string) {
   return configured.some(
     (location) => fullLocation.includes(location) || city.toLowerCase() === location,
   );
+}
+
+function isSameOrigin(request: NextRequest) {
+  const origin = request.headers.get("origin");
+  if (!origin) return true;
+
+  try {
+    return new URL(origin).hostname === request.nextUrl.hostname;
+  } catch {
+    return false;
+  }
 }
 
 async function sendSlackAlert(message: string) {
@@ -64,9 +73,10 @@ async function sendSlackAlert(message: string) {
 export async function POST(request: NextRequest) {
   const userAgent = request.headers.get("user-agent") || "";
 
-  // Reject obvious crawlers, link previewers, monitoring tools, and scanners.
-  if (!userAgent || BOT_PATTERN.test(userAgent)) {
-    return NextResponse.json({ ok: true, ignored: "automated-client" });
+  // Reject obvious crawlers, link previewers, monitoring tools, scanners,
+  // and browser requests originating from a different site.
+  if (!userAgent || BOT_PATTERN.test(userAgent) || !isSameOrigin(request)) {
+    return NextResponse.json({ ok: true, ignored: "automated-or-external-client" });
   }
 
   let body: VisitEvent;
@@ -120,14 +130,17 @@ export async function POST(request: NextRequest) {
   const notableEvent = event === "engaged" || event === "link_click";
 
   if (notableEvent && (watchMatch || alertAllHumans)) {
-    const location = [geo.city, geo.region, geo.country].filter(Boolean).join(", ") || "Unknown location";
+    const location =
+      [geo.city, geo.region, geo.country].filter(Boolean).join(", ") ||
+      "Unknown location";
     const heading = watchMatch
       ? `:eyes: Possible ${label} portfolio visit`
       : ":eyes: Engaged portfolio visitor";
 
-    const detail = event === "link_click" && record.destination
-      ? `Clicked: ${record.destination}`
-      : "Stayed on the site for at least 15 seconds";
+    const detail =
+      event === "link_click" && record.destination
+        ? `Clicked: ${record.destination}`
+        : "Stayed on the site for at least 15 seconds";
 
     await sendSlackAlert(
       `${heading}\nLocation: ${location}\nPage: ${record.path || "/"}\n${detail}\nSession: ${record.sessionId.slice(0, 8) || "unknown"}`,
