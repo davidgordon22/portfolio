@@ -109,7 +109,7 @@ export default function HomePage() {
             <div className="relative aspect-3/4 w-full overflow-hidden bg-panel">
               <Image
                 src="/profile.jpg"
-                alt="David Gordon on a snow-covered ridgeline"
+                alt="David Gordon holding his bib and finisher medal at the Trail Verbier St-Bernard X-Alpine"
                 fill
                 priority
                 sizes="(min-width: 768px) 33vw, 100vw"
@@ -117,7 +117,7 @@ export default function HomePage() {
               />
             </div>
             <p className="mt-4 font-mono text-[12px] leading-[1.6] text-meta">
-              Somewhere cold, high, or underwater.
+              Trail Verbier St-Bernard, X-Alpine finish.
             </p>
           </div>
         </div>
