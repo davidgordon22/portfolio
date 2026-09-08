@@ -22,7 +22,7 @@ const metrics = [
     index: "03",
     value: "40+ users",
     description:
-      "On internal tools I built and maintain, used daily by executives, sales reps, and customer service across two companies.",
+      "On internal tools I built and maintain, used daily by executives, sales reps, and customer service. Those systems support a 120-person primary company inside a 600+ person group.",
   },
 ];
 
