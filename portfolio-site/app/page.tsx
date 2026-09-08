@@ -113,7 +113,7 @@ export default function HomePage() {
                 fill
                 priority
                 sizes="(min-width: 768px) 33vw, 100vw"
-                className="object-cover grayscale contrast-110"
+                className="object-cover"
               />
             </div>
             <p className="mt-4 font-mono text-[12px] leading-[1.6] text-meta">
@@ -200,7 +200,7 @@ export default function HomePage() {
                   alt="Otter Dolphin logo"
                   width={48}
                   height={48}
-                  className="h-12 w-12 object-cover grayscale"
+                  className="h-12 w-12 object-cover"
                 />
               }
             />
@@ -230,7 +230,7 @@ export default function HomePage() {
                   alt="Argo Delivery logo"
                   width={48}
                   height={48}
-                  className="h-12 w-12 scale-[1.18] object-cover grayscale"
+                  className="h-12 w-12 scale-[1.18] object-cover"
                 />
               }
             />
@@ -269,16 +269,33 @@ export default function HomePage() {
       {/* ----------------------- Beyond the Desk ------------------------ */}
       <section className={shell}>
         <Reveal>
-          <div className="border-t border-rule pt-16">
-            <p className="font-mono text-[12px] text-meta">Beyond the desk</p>
-            <h2 className="mt-6 max-w-[24ch] text-[clamp(1.75rem,3.2vw,2.5rem)] font-medium leading-[1.15] tracking-[-0.03em]">
-              The same stubbornness, applied to harder terrain.
-            </h2>
-            <p className="mt-6 max-w-[58ch] text-[16px] leading-[1.75] text-muted">
-              I do not have a great relationship with the word &quot;quit.&quot;
-              That tends to show up at work and, more obviously, in places with
-              bad weather and worse cell service.
-            </p>
+          <div className="grid grid-cols-1 gap-12 border-t border-rule pt-16 md:grid-cols-12 md:gap-8">
+            <div className="md:col-span-7">
+              <p className="font-mono text-[12px] text-meta">Beyond the desk</p>
+              <h2 className="mt-6 max-w-[24ch] text-[clamp(1.75rem,3.2vw,2.5rem)] font-medium leading-[1.15] tracking-[-0.03em]">
+                The same stubbornness, applied to harder terrain.
+              </h2>
+              <p className="mt-6 max-w-[58ch] text-[16px] leading-[1.75] text-muted">
+                I do not have a great relationship with the word
+                &quot;quit.&quot; That tends to show up at work and, more
+                obviously, in places with bad weather and worse cell service.
+              </p>
+            </div>
+
+            <div className="md:col-span-4 md:col-start-9">
+              <div className="relative aspect-3/4 w-full overflow-hidden bg-panel">
+                <Image
+                  src="/ski-touring.jpg"
+                  alt="David Gordon crossing a snowfield with skis on his pack below a rocky peak"
+                  fill
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <p className="mt-4 font-mono text-[12px] leading-[1.6] text-meta">
+                Skis on the pack, somewhere cold and high.
+              </p>
+            </div>
           </div>
         </Reveal>
 
