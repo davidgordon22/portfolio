@@ -83,7 +83,7 @@ export default function HomePage() {
               I build the automation, data platforms, and internal tools that
               operations teams run on. They take repetitive work off
               people&apos;s plates and let them spend their hours on judgment
-              instead. When I am not working, I am usually somewhere cold, high,
+              instead. When I am not working, I am usually somewhere cold, alpine,
               or underwater.
             </p>
 
@@ -293,7 +293,7 @@ export default function HomePage() {
                 />
               </div>
               <p className="mt-4 font-mono text-[12px] leading-[1.6] text-meta">
-                Skis on the pack, somewhere cold and high.
+                Skis on the pack, somewhere cold and alpine.
               </p>
             </div>
           </div>
